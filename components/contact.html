@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="shortcut icon" type="x-icon" href="../public/logo-shortcut.jpeg" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <a href="../index.html">
+      <div class="navbar">
+        <span><ion-icon name="home"></ion-icon></span>
+        <a>Back to Home</a>
+      </div>
+    </a>
+    <div class="contactUs">
+      <div class="title">
+        <h2>Get in Touch</h2>
+      </div>
+      <div class="box">
+        <!--form-->
+        <div class="contact form">
+          <h3>Send a Message</h3>
+          <form onsubmit="sendEmail(); reset(); return false;">
+            <div class="formBox">
+              <div class="row50">
+                <div class="inputBox">
+                  <span>First Name</span>
+                  <input type="text" id="fname" placeholder="Jhon" />
+                </div>
+                <div class="inputBox">
+                  <span>Last Name</span>
+                  <input type="text" id="lname" placeholder="Doe" />
+                </div>
+              </div>
+
+              <div class="row50">
+                <div class="inputBox">
+                  <span>Email</span>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="example@mail.com"
+                  />
+                </div>
+                <div class="inputBox">
+                  <span>Mobile</span>
+                  <input
+                    type="number"
+                    id="Mobile"
+                    placeholder="+91 987 654 3210"
+                  />
+                </div>
+              </div>
+
+              <div class="row100">
+                <div class="inputBox">
+                  <span>Message</span>
+                  <textarea
+                    id="message"
+                    placeholder="Write your message here..."
+                  ></textarea>
+                </div>
+              </div>
+              <div class="row100">
+                <div class="inputBox">
+                  <input type="submit" id="submit" value="send" />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!--info-->
+        <div class="contact info">
+          <h3>Contact Info</h3>
+          <div class="infoBox">
+            <div>
+              <span><ion-icon name="pin"></ion-icon></span>
+              <p>Amity University Rajasthan,<br />Jaipur</p>
+            </div>
+            <div>
+              <span><ion-icon name="mail"></ion-icon></span>
+              <a href="mailto:rishabh.bothra@s.amity.edu"
+                >rishabh.bothra@s.amity.edu</a
+              >
+            </div>
+            <div>
+              <span><ion-icon name="call"></ion-icon></span>
+              <a href="tel:+918955226422">+91-8955226422</a>
+            </div>
+          </div>
+        </div>
+
+        <!--map-->
+        <div class="contact map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7098.71948916179!2d75.95990317432799!3d27.17642792994036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396da7055b53a087%3A0xcda4045979638d31!2sAmity%20University!5e0!3m2!1sen!2sin!4v1678206586661!5m2!1sen!2sin"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail(){
+        Email.send({
+          SecureToken:"1a8f95cf-ccca-43c9-92ab-62ef34a36829",
+          To: "Rishabhjain27082004@gmail.com",
+          From: document.getElementById("email").value,
+          Subject: "New Contact Form Enquiry",
+          Body: "Name: " + document.getElementById("fname").value + document.getElementById("lname").value
+                +"<br> Email: " + document.getElementById("email").value
+                +"<br> Mobile: " + document.getElementById("Mobile").value
+                +"<br> message: " + document.getElementById("message").value,
+        }).then((message) => alert("Message Sent Succesfully"));
+      }
+    </script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </body>
+</html>
